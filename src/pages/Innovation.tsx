@@ -1,17 +1,17 @@
 import Header from "@/components/Header";
+import Innovation from "@/components/Innovation";
 import Footer from "@/components/Footer";
-import About from "@/components/About";
 
-const AboutPage = () => {
+const InnovationPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-16">
-        <About />
+        <Innovation />
       </main>
       <Footer />
     </div>
   );
 };
 
-export default AboutPage;
+export default InnovationPage;

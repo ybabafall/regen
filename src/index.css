@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* RE-GEN Salon Design System - Luxe Épuré */
+/* RE-GEN Salon Design System - Laboratory Luxe */
 
 @layer base {
   html {
@@ -17,70 +17,87 @@
   }
   
   :root {
-    /* Palette Luxueuse Louis Vuitton Inspired */
-    --background: 0 0% 100%; /* Blanc pur */
-    --background-luxury: 0 0% 99%; /* Blanc cassé luxury */
-    --foreground: 0 0% 8%; /* Noir charbon sophistiqué */
+    /* Laboratory Luxe Color Palette - Ultra Light Ice Blue & White */
+    --background: 200 30% 99%; /* Pure white with barely visible ice blue undertone */
+    --background-luxury: 200 25% 98%; /* Ultra soft ice white */
+    --foreground: 210 20% 25%; /* Very soft charcoal with blue undertone */
 
-    /* Gris Premium */
-    --gray-light: 0 0% 90%; /* Gris clair premium */
-    --gray-medium: 0 0% 55%; /* Gris moyen raffiné */
-    --gray-subtle: 0 0% 97%; /* Gris très subtil */
-    --gray-luxury: 0 0% 15%; /* Gris foncé luxury */
+    /* Cold Gray Laboratory Spectrum - Ultra Light */
+    --gray-light: 200 20% 94%; /* Ultra light ice gray */
+    --gray-medium: 200 15% 75%; /* Very light mid tone ice slate */
+    --gray-subtle: 200 25% 97%; /* Almost white ice gray */
+    --gray-luxury: 210 25% 30%; /* Light laboratory charcoal */
+    --slate-molecular: 200 20% 60%; /* Very light molecular structure blue */
+    --slate-chrome: 200 20% 70%; /* Very light chrome-like blue-gray */
 
-    /* Or et Accents Premium */
-    --gold-primary: 45 85% 35%; /* Or Louis Vuitton */
-    --gold-light: 45 90% 75%; /* Or clair */
-    --gold-subtle: 45 60% 95%; /* Or très subtil */
-    --accent: 45 85% 35%; /* Or pour accents */
+    /* Ice Blue Laboratory Accents - Ultra Light & Pastel */
+    --ice-blue-primary: 200 50% 75%; /* Ultra soft pastel ice blue */
+    --ice-blue-light: 200 40% 88%; /* Almost white ice blue */
+    --ice-blue-subtle: 200 30% 96%; /* Barely visible ice tint */
+    --steel-blue: 200 30% 70%; /* Very light steel laboratory blue */
 
-    /* Composants Ultra Épurés */
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    /* Gold Luxury Accents (Replaced with Ultra Light Ice Blue) */
+    --gold-primary: 200 45% 80%; /* Very soft ice blue instead of gold */
+    --gold-light: 200 35% 90%; /* Almost white ice blue */
+    --gold-subtle: 200 25% 98%; /* Barely visible ice tint */
+    --accent: 200 50% 75%; /* Ultra soft ice blue for accents */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    /* Laboratory UI Components - Ultra Light Ice Blue Theme */
+    --card: 200 30% 99%;
+    --card-foreground: 210 20% 25%;
 
-    --primary: 45 85% 35%; /* Or primary */
-    --primary-foreground: 0 0% 100%;
+    --popover: 200 30% 99%;
+    --popover-foreground: 210 20% 25%;
 
-    --secondary: 0 0% 97%;
-    --secondary-foreground: 0 0% 8%;
+    --primary: 200 50% 75%; /* Ultra soft pastel ice blue primary */
+    --primary-foreground: 200 30% 99%;
 
-    --muted: 0 0% 97%;
-    --muted-foreground: 0 0% 55%;
+    --secondary: 200 25% 97%;
+    --secondary-foreground: 210 20% 25%;
 
-    --accent-foreground: 0 0% 100%;
+    --muted: 200 25% 97%;
+    --muted-foreground: 200 15% 75%;
+
+    --accent-foreground: 200 30% 99%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 200 30% 99%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 100%;
-    --ring: 45 85% 35%;
+    --border: 200 20% 94%;
+    --input: 200 30% 99%;
+    --ring: 200 50% 75%;
 
-    --radius: 2px; /* Coins très légèrement arrondis pour le luxe */
+    --radius: 4px; /* Sharp laboratory precision */
 
-    /* Ombres Premium Subtiles */
-    --shadow-subtle: 0 1px 3px hsl(0 0% 0% / 0.08);
-    --shadow-card: 0 2px 8px hsl(0 0% 0% / 0.06);
-    --shadow-luxury: 0 4px 12px hsl(0 0% 0% / 0.05);
-    --shadow-premium: 0 8px 32px hsl(0 0% 0% / 0.06);
-    --shadow-glass: 0 8px 32px hsl(0 0% 0% / 0.12);
-    
-    /* Effets Glassmorphism */
-    --glass-bg: hsl(0 0% 100% / 0.8);
-    --glass-border: hsl(0 0% 100% / 0.2);
-    --glass-backdrop: blur(16px);
-    
-    /* Gradients Premium */
-    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.1), hsl(0 0% 100% / 0.05));
-    --gradient-premium: linear-gradient(135deg, hsl(var(--gold-primary) / 0.1), hsl(var(--gold-light) / 0.05));
+    /* Laboratory Equipment Shadows - Ultra Light Ice Blue */
+    --shadow-subtle: 0 1px 3px hsl(200 30% 70% / 0.04);
+    --shadow-card: 0 2px 8px hsl(200 30% 70% / 0.03);
+    --shadow-luxury: 0 4px 12px hsl(200 50% 75% / 0.08);
+    --shadow-premium: 0 8px 32px hsl(200 50% 75% / 0.10);
+    --shadow-glass: 0 8px 32px hsl(200 50% 75% / 0.12);
+    --shadow-molecular: 0 12px 40px hsl(200 50% 75% / 0.10);
+    --shadow-chrome: 0 4px 16px hsl(200 40% 80% / 0.12);
+
+    /* Molecular Glass Effects - Ultra Light Ice Blue */
+    --glass-bg: hsl(200 30% 99% / 0.90);
+    --glass-border: hsl(200 40% 88% / 0.20);
+    --glass-backdrop: blur(24px);
+    --glass-molecular: hsl(200 50% 75% / 0.04);
+    --glass-chrome: hsl(200 40% 85% / 0.10);
+
+    /* Laboratory Gradients - Ultra Light Ice Blue Theme */
+    --gradient-glass: linear-gradient(135deg, hsl(200 30% 99% / 0.10), hsl(200 30% 96% / 0.05));
+    --gradient-premium: linear-gradient(135deg, hsl(200 50% 75% / 0.10), hsl(200 40% 88% / 0.05));
     --gradient-sophisticated: linear-gradient(135deg, hsl(var(--background)), hsl(var(--background-luxury)));
-    
-    /* Effets de lumière */
-    --glow-gold: 0 0 20px hsl(var(--gold-primary) / 0.3);
-    --glow-subtle: 0 0 40px hsl(var(--gold-primary) / 0.1);
+    --gradient-molecular: linear-gradient(135deg, hsl(200 50% 75% / 0.05), hsl(200 30% 96% / 0.02));
+    --gradient-chrome: linear-gradient(135deg, hsl(200 40% 85%), hsl(200 35% 90%));
+    --gradient-ice: linear-gradient(135deg, hsl(200 50% 75%), hsl(200 40% 88%));
+
+    /* Laboratory Light Effects - Ultra Soft Ice Blue Glow */
+    --glow-gold: 0 0 20px hsl(200 50% 75% / 0.25);
+    --glow-subtle: 0 0 40px hsl(200 50% 75% / 0.10);
+    --glow-ice: 0 0 30px hsl(200 50% 75% / 0.20);
+    --glow-molecular: 0 0 25px hsl(200 50% 75% / 0.15);
 
     /* Typographie Luxury */
     --font-display: 'Playfair Display', serif;
@@ -93,66 +110,72 @@
   }
 
   .dark {
-    /* Dark Mode Luxe 2025 - Noir + Doré */
-    --background: 0 0% 5%; /* Noir profond luxueux */
-    --foreground: 0 0% 98%; /* Blanc pour texte */
+    /* Dark Laboratory Mode - Deep Lab + Chrome */
+    --background: 210 30% 4%; /* Deep laboratory black */
+    --foreground: 210 20% 94%; /* Cool white for text */
 
-    --card: 0 0% 8%; /* Cartes sombres */
-    --card-foreground: 0 0% 98%;
+    --card: 210 25% 8%; /* Dark laboratory cards */
+    --card-foreground: 210 20% 94%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 210 25% 8%;
+    --popover-foreground: 210 20% 94%;
 
-    --primary: 0 0% 98%; 
-    --primary-foreground: 0 0% 5%;
+    --primary: 45 85% 55%; /* Gold remains bright in dark */
+    --primary-foreground: 210 30% 4%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 210 25% 12%;
+    --secondary-foreground: 210 20% 94%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 210 25% 12%;
+    --muted-foreground: 210 15% 65%;
 
-    --accent: 0 0% 12%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 210 25% 12%;
+    --accent-foreground: 210 20% 94%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 20% 94%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 12%;
-    --ring: 45 85% 55%; /* Doré pour focus */
-    
-    /* Variables spéciales dark mode */
-    --gold-primary: 45 85% 55%; /* Or plus lumineux en dark */
+    --border: 210 20% 18%;
+    --input: 210 25% 12%;
+    --ring: 45 85% 55%;
+
+    /* Dark Laboratory Variables */
+    --gold-primary: 45 85% 55%;
     --gold-light: 45 90% 70%;
-    --gray-medium: 0 0% 70%;
+    --gray-medium: 210 15% 70%;
+    --ice-blue-primary: 200 80% 55%;
+    --slate-molecular: 210 25% 15%;
+    --glass-bg: hsl(210 25% 8% / 0.7);
+    --glass-border: hsl(210 20% 18% / 0.4);
+    --glow-ice: 0 0 30px hsl(200 80% 55% / 0.3);
   }
 
-  /* Classes dark mode luxe automatiques */
+  /* Dark Laboratory Mode Classes */
   .dark .card-luxe-2025 {
-    background: rgba(0, 0, 0, 0.8);
-    border-color: rgba(207, 166, 124, 0.3);
+    background: hsl(210 25% 8% / 0.8);
+    border-color: hsl(200 85% 45% / 0.2);
   }
 
   .dark .glass-luxe {
-    background: rgba(0, 0, 0, 0.6);
-    border-color: rgba(207, 166, 124, 0.2);
+    background: hsl(210 25% 8% / 0.7);
+    border-color: hsl(200 85% 45% / 0.15);
+    backdrop-filter: blur(20px);
   }
 
   .dark .badge-luxe {
-    background: rgba(0, 0, 0, 0.7);
-    border-color: rgba(207, 166, 124, 0.4);
-    color: #CFA67C;
+    background: hsl(210 25% 12% / 0.8);
+    border-color: hsl(45 85% 55% / 0.3);
+    color: hsl(45 85% 55%);
   }
 
   .dark .btn-luxe-outline {
-    border-color: #CFA67C;
-    color: #CFA67C;
+    border-color: hsl(45 85% 55%);
+    color: hsl(45 85% 55%);
   }
 
   .dark .btn-luxe-outline:hover {
-    background: #CFA67C;
-    color: #000000;
+    background: hsl(45 85% 55%);
+    color: hsl(210 30% 4%);
   }
 }
 
@@ -1033,5 +1056,425 @@
 
   .rounded-luxe-large {
     border-radius: 16px;
+  }
+
+  /* === LABORATORY MOLECULAR EFFECTS === */
+
+  /* Molecular Glass Effects */
+  .molecular-glass {
+    @apply rounded-lg;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-molecular);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .molecular-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-molecular);
+    opacity: 0.3;
+    z-index: -1;
+  }
+
+  .molecular-glass::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    width: 8px;
+    height: 8px;
+    background: var(--ice-blue-primary);
+    border-radius: 50%;
+    box-shadow:
+      20px 15px 0 -2px hsl(var(--ice-blue-light)),
+      -10px 25px 0 -3px hsl(var(--ice-blue-subtle)),
+      35px 30px 0 -1px hsl(var(--ice-blue-primary));
+    animation: molecular-float 8s ease-in-out infinite;
+  }
+
+  /* Chrome Laboratory Components */
+  .chrome-element {
+    background: var(--gradient-chrome);
+    border: 1px solid hsl(var(--slate-chrome));
+    box-shadow: var(--shadow-chrome);
+    transition: var(--transition);
+    position: relative;
+  }
+
+  .chrome-element:hover {
+    background: var(--gradient-liquid-chrome);
+    box-shadow: var(--shadow-premium), var(--glow-molecular);
+    transform: translateY(-2px);
+  }
+
+  /* Laboratory Droplets */
+  .laboratory-droplet {
+    position: relative;
+    width: 12px;
+    height: 16px;
+    background: var(--gradient-ice);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow:
+      inset 2px 2px 4px hsl(var(--ice-blue-light) / 0.3),
+      0 2px 8px hsl(var(--ice-blue-primary) / 0.2);
+    animation: droplet-fall 3s ease-in-out infinite;
+  }
+
+  .laboratory-droplet::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: 3px;
+    height: 4px;
+    background: hsl(var(--ice-blue-light) / 0.6);
+    border-radius: 50%;
+  }
+
+  /* Ice Crystal Effect */
+  .ice-crystal {
+    position: relative;
+    background: var(--gradient-ice);
+    border: 1px solid hsl(var(--ice-blue-primary) / 0.3);
+    box-shadow: var(--glow-ice);
+    animation: ice-pulse 4s ease-in-out infinite;
+  }
+
+  .ice-crystal::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(45deg,
+      transparent,
+      hsl(var(--ice-blue-light) / 0.1),
+      transparent,
+      hsl(var(--ice-blue-primary) / 0.1)
+    );
+    z-index: -1;
+    border-radius: inherit;
+    animation: chrome-flow 6s ease-in-out infinite;
+  }
+
+  /* Laboratory Equipment Style */
+  .lab-equipment {
+    @apply rounded-lg;
+    background: var(--gradient-sophisticated);
+    border: 2px solid hsl(var(--slate-molecular));
+    box-shadow: var(--shadow-laboratory-strong);
+    position: relative;
+    padding: 1.5rem;
+  }
+
+  .lab-equipment::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-ice);
+    border-radius: inherit;
+  }
+
+  /* Molecular Particle Effect */
+  .molecular-particles {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .molecular-particles::before,
+  .molecular-particles::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: hsl(var(--ice-blue-primary) / 0.6);
+    border-radius: 50%;
+    animation: molecular-float 8s ease-in-out infinite;
+  }
+
+  .molecular-particles::before {
+    top: 20%;
+    left: 20%;
+    animation-delay: -2s;
+  }
+
+  .molecular-particles::after {
+    top: 60%;
+    right: 25%;
+    animation-delay: -4s;
+  }
+
+  /* Chrome Flow Button */
+  .btn-chrome-flow {
+    @apply px-6 py-3 rounded-lg font-medium;
+    background: var(--gradient-chrome);
+    color: hsl(var(--background));
+    border: 1px solid hsl(var(--slate-chrome));
+    box-shadow: var(--shadow-chrome);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-chrome-flow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-ice);
+    transition: all 0.6s ease;
+    z-index: -1;
+  }
+
+  .btn-chrome-flow:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-laboratory-medium), var(--glow-ice);
+  }
+
+  .btn-chrome-flow:hover::before {
+    left: 0;
+  }
+
+  /* Laboratory Container */
+  .laboratory-container {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-glass);
+  }
+
+  .laboratory-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-molecular);
+    opacity: 0.1;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  /* Enhanced hover states for laboratory theme */
+  .hover-molecular:hover {
+    box-shadow: var(--glow-molecular);
+    transform: translateY(-1px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-ice:hover {
+    color: hsl(var(--ice-blue-primary));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-chrome:hover {
+    background: var(--gradient-chrome);
+    color: hsl(var(--background));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* === SCIENTIFIC TYPOGRAPHY === */
+
+  /* Laboratory Headers */
+  .text-laboratory-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: hsl(var(--foreground));
+    line-height: 1.1;
+  }
+
+  .text-laboratory-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: hsl(var(--slate-molecular));
+    line-height: 1.2;
+  }
+
+  /* Scientific Notation */
+  .text-formula {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: hsl(var(--ice-blue-primary));
+    background: hsl(var(--laboratory-100));
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid hsl(var(--laboratory-200));
+  }
+
+  /* Laboratory Labels */
+  .text-lab-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: hsl(var(--slate-chrome));
+    line-height: 1;
+  }
+
+  /* Molecular Code */
+  .text-molecular-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: hsl(var(--slate-molecular));
+    background: hsl(var(--laboratory-50));
+    padding: 0.5rem;
+    border-radius: 6px;
+    border-left: 3px solid hsl(var(--ice-blue-primary));
+  }
+
+  /* Technical Specifications */
+  .text-spec {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: hsl(var(--laboratory-400));
+    line-height: 1.4;
+  }
+
+  .text-spec-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: hsl(var(--gold-primary));
+  }
+
+  /* Laboratory Data Display */
+  .data-display {
+    font-family: 'JetBrains Mono', monospace;
+    background: hsl(var(--laboratory-900));
+    color: hsl(var(--ice-blue-light));
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid hsl(var(--slate-molecular));
+    box-shadow: var(--shadow-laboratory-medium);
+    position: relative;
+  }
+
+  .data-display::before {
+    content: '> ';
+    color: hsl(var(--gold-primary));
+    font-weight: 700;
+  }
+
+  .data-display .highlight {
+    color: hsl(var(--gold-light));
+    font-weight: 600;
+  }
+
+  /* Measurement Units */
+  .unit {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: hsl(var(--laboratory-400));
+    margin-left: 0.25rem;
+  }
+
+  /* Scientific Superscript/Subscript */
+  .formula-super {
+    font-size: 0.7em;
+    vertical-align: super;
+    color: hsl(var(--ice-blue-primary));
+  }
+
+  .formula-sub {
+    font-size: 0.7em;
+    vertical-align: sub;
+    color: hsl(var(--ice-blue-primary));
+  }
+
+  /* Laboratory Status Indicators */
+  .status-active {
+    color: hsl(var(--gold-primary));
+    font-weight: 600;
+  }
+
+  .status-processing {
+    color: hsl(var(--ice-blue-primary));
+    font-weight: 600;
+    animation: ice-pulse 2s ease-in-out infinite;
+  }
+
+  .status-complete {
+    color: hsl(var(--laboratory-400));
+    font-weight: 500;
+  }
+
+  /* Enhanced Laboratory Badge */
+  .laboratory-badge {
+    @apply inline-flex items-center space-x-2 px-3 py-1.5;
+    background: hsl(var(--laboratory-100));
+    border: 1px solid hsl(var(--laboratory-200));
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: hsl(var(--slate-molecular));
+    position: relative;
+  }
+
+  .laboratory-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: hsl(var(--ice-blue-primary));
+    border-radius: 50%;
+    box-shadow: var(--glow-ice);
+    animation: ice-pulse 3s ease-in-out infinite;
+  }
+
+  /* Scientific Progress Indicator */
+  .progress-molecular {
+    height: 4px;
+    background: hsl(var(--laboratory-200));
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .progress-molecular::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--gradient-ice);
+    border-radius: 2px;
+    width: var(--progress-width, 0%);
+    transition: width 0.5s ease;
+  }
+
+  .progress-molecular::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--ice-blue-light) / 0.4), transparent);
+    animation: chrome-flow 2s ease-in-out infinite;
   }
 }
