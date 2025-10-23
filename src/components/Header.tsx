@@ -1,23 +1,38 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Sparkles, Crown } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
-import regenLogo from "@/assets/regen-logo.png";
+import regenText from "@/assets/regen-text.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+
+      setIsScrolled(currentScrollY > 50);
+
+      // Afficher le header si on scroll vers le haut ou si on est en haut de page
+      if (currentScrollY < lastScrollY || currentScrollY < 100) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Cacher le header si on scroll vers le bas
+        setIsVisible(false);
+        setIsMenuOpen(false); // Fermer le menu mobile si ouvert
+      }
+
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const scrollToSection = (sectionId: string) => {
     if (sectionId === 'about') {
@@ -49,146 +64,148 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-      isHomePage 
-        ? (isScrolled 
-          ? 'bg-white/95 backdrop-blur-xl border-b border-brand-500/10 shadow-luxury-medium' 
-          : 'bg-transparent')
-        : 'bg-white/95 backdrop-blur-xl border-b border-brand-500/10 shadow-luxury-medium'
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent ${
+      isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
-      <nav className="container mx-auto py-[clamp(0.25rem,1vw,0.5rem)]">
-        <div className="flex items-center justify-between">
-          {/* Logo Ultra-Moderne - visible après scroll sur homepage, toujours visible sur autres pages */}
-          {(isHomePage ? isScrolled : true) && (
-            <div 
-              onClick={() => scrollToSection('hero')}
-              className="flex items-center hover-lift-luxe cursor-pointer animate-spring group"
-            >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-brand rounded-full opacity-0 group-hover:opacity-20 transition-all duration-500 blur-sm"></div>
-                <img 
-                  src={regenLogo} 
-                  alt="RE-GEN Logo" 
-                  className="h-[clamp(2.5rem,5vw,3rem)] w-[clamp(2.5rem,5vw,3rem)] object-contain transition-all duration-500 group-hover:scale-110 relative z-10 rounded-full"
-                />
-              </div>
-            </div>
-          )}
-
-          <div></div>
-          
-          {/* Navigation Ultra-Moderne Desktop */}
-          <div className="hidden lg:flex items-center space-x-1">
+      <nav className={`container mx-auto py-[clamp(0.75rem,2vw,1rem)] px-6 transition-all duration-700 ${
+        isHomePage
+          ? (isScrolled
+            ? 'bg-white/80 backdrop-blur-2xl border-b border-neutral-900/5 rounded-b-2xl'
+            : '')
+          : 'bg-white/80 backdrop-blur-2xl border-b border-neutral-900/5 rounded-b-2xl'
+      }`}>
+        <div className="flex items-center justify-between relative">
+          {/* Navigation Desktop - à gauche */}
+          <div className="hidden lg:flex items-center space-x-8">
             {[
               { id: 'hero', label: 'Accueil' },
               { id: 'services', label: 'Services' },
               { id: 'about', label: 'À propos' }
             ].map((item) => (
-              <button 
+              <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-[clamp(0.5rem,1.5vw,0.75rem)] py-[clamp(0.25rem,1vw,0.5rem)] font-medium text-[clamp(0.75rem,1.5vw,0.875rem)] font-body rounded transition-all duration-300 group relative overflow-hidden ${
-                  isHomePage 
-                    ? (isScrolled 
-                      ? 'text-neutral-900 hover-champagne hover:bg-brand-500/10' 
-                      : 'text-white hover:text-brand-500 hover:bg-white/10')
-                    : 'text-neutral-900 hover-champagne hover:bg-brand-500/10'
+                className={`relative group text-base font-body font-normal tracking-wide transition-all duration-300 ${
+                  isHomePage
+                    ? (isScrolled
+                      ? 'text-neutral-900/70 hover:text-neutral-900'
+                      : 'text-white/80 hover:text-white')
+                    : 'text-neutral-900/70 hover:text-neutral-900'
                 }`}
               >
-                <span className="relative z-10">{item.label}</span>
-                <div className="absolute inset-0 bg-gradient-brand opacity-0 group-hover:opacity-5 transition-all duration-300"></div>
+                {item.label}
+                {/* Soulignement au hover */}
+                <span className={`absolute -bottom-1 left-0 h-px w-0 group-hover:w-full transition-all duration-300 ${
+                  isHomePage
+                    ? (isScrolled ? 'bg-neutral-900' : 'bg-white')
+                    : 'bg-neutral-900'
+                }`}></span>
               </button>
             ))}
-            
-            <button 
-              onClick={() => navigate('/booking')}
-              className={`ml-3 relative group px-[clamp(1rem,2.5vw,1.25rem)] py-[clamp(0.625rem,1.5vw,0.75rem)] text-[clamp(0.75rem,1.5vw,0.875rem)] font-medium transition-all duration-500 overflow-hidden ${
-                isHomePage 
-                  ? (isScrolled 
-                    ? 'bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white shadow-lg hover:shadow-xl' 
-                    : 'bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-white/40')
-                  : 'bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white shadow-lg hover:shadow-xl'
-              } rounded-full hover:scale-105`}
+          </div>
+
+          {/* Logo au centre - visible après scroll sur homepage, toujours visible sur autres pages */}
+          {(isHomePage ? isScrolled : true) && (
+            <div
+              onClick={() => scrollToSection('hero')}
+              className="absolute left-1/2 transform -translate-x-1/2 flex items-center cursor-pointer group"
             >
-              <span className="relative z-10 flex items-center space-x-2">
-                <span>Réserver</span>
-                <div className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  isHomePage 
-                    ? (isScrolled ? 'bg-white' : 'bg-brand-500')
-                    : 'bg-white'
-                } group-hover:scale-125`}></div>
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-brand-400 to-brand-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
+              <div className="relative flex items-center">
+                <img
+                  src={regenText}
+                  alt="RE-GEN"
+                  className="h-[clamp(1.5rem,3vw,2rem)] w-auto object-contain transition-all duration-300 group-hover:opacity-80"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Bouton Réserver à droite */}
+          <div className="hidden lg:flex items-center">
+            <button
+              onClick={() => navigate('/booking')}
+              className={`relative group text-base font-body font-normal tracking-wide transition-all duration-300 ${
+                isHomePage
+                  ? (isScrolled
+                    ? 'text-neutral-900/70 hover:text-neutral-900'
+                    : 'text-white/80 hover:text-white')
+                  : 'text-neutral-900/70 hover:text-neutral-900'
+              }`}
+            >
+              Réserver
+              {/* Soulignement au hover */}
+              <span className={`absolute -bottom-1 left-0 h-px w-0 group-hover:w-full transition-all duration-300 ${
+                isHomePage
+                  ? (isScrolled ? 'bg-neutral-900' : 'bg-white')
+                  : 'bg-neutral-900'
+              }`}></span>
             </button>
           </div>
 
 
-          {/* Menu Burger Moderne */}
+          {/* Menu Burger Minimaliste */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`lg:hidden relative group px-[clamp(0.75rem,2vw,1rem)] py-[clamp(0.5rem,1.5vw,0.75rem)] font-medium transition-all duration-500 overflow-hidden ${
-              isHomePage 
-                ? (isScrolled 
-                  ? 'bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 shadow-lg hover:shadow-xl' 
-                  : 'bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-white/40')
-                : 'bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 shadow-lg hover:shadow-xl'
-            } rounded-full hover:scale-105`}
+            className="lg:hidden relative p-2 transition-all duration-300"
           >
-            <div className="relative w-4 h-4 flex items-center justify-center">
-              <div className={`absolute w-3 h-0.5 transition-all duration-500 ease-in-out ${isMenuOpen ? 'rotate-45 translate-y-0 w-4' : '-translate-y-1'} ${
-                isHomePage 
-                  ? (isScrolled ? 'bg-white' : 'bg-white')
-                  : 'bg-white'
+            <div className="relative w-5 h-4 flex items-center justify-center">
+              <div className={`absolute w-5 h-px transition-all duration-300 ease-in-out ${isMenuOpen ? 'rotate-45 translate-y-0' : '-translate-y-1.5'} ${
+                isHomePage
+                  ? (isScrolled ? 'bg-neutral-900' : 'bg-white')
+                  : 'bg-neutral-900'
               }`}></div>
-              <div className={`absolute w-3 h-0.5 transition-all duration-300 ${isMenuOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'} ${
-                isHomePage 
-                  ? (isScrolled ? 'bg-white' : 'bg-white')
-                  : 'bg-white'
+              <div className={`absolute w-5 h-px transition-all duration-300 ${isMenuOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'} ${
+                isHomePage
+                  ? (isScrolled ? 'bg-neutral-900' : 'bg-white')
+                  : 'bg-neutral-900'
               }`}></div>
-              <div className={`absolute w-3 h-0.5 transition-all duration-500 ease-in-out ${isMenuOpen ? '-rotate-45 translate-y-0 w-4' : 'translate-y-1'} ${
-                isHomePage 
-                  ? (isScrolled ? 'bg-white' : 'bg-white')
-                  : 'bg-white'
+              <div className={`absolute w-5 h-px transition-all duration-300 ease-in-out ${isMenuOpen ? '-rotate-45 translate-y-0' : 'translate-y-1.5'} ${
+                isHomePage
+                  ? (isScrolled ? 'bg-neutral-900' : 'bg-white')
+                  : 'bg-neutral-900'
               }`}></div>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-400 to-brand-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
           </button>
         </div>
 
-        {/* Navigation Mobile Moderne */}
+        {/* Navigation Mobile */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 glass-luxe rounded-luxe-medium p-[clamp(1rem,3vw,1.5rem)] animate-spring border-brand-500/10">
-            <div className="space-y-3">
-              {/* Navigation Links */}
-              <div className="space-y-2">
+          <div className="lg:hidden absolute left-0 right-0 top-full mt-0">
+            <div className="mt-4 bg-white/90 px-10 py-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] backdrop-blur-xl before:pointer-events-none before:absolute before:inset-px before:bg-gradient-to-b before:from-white/80 before:to-white/30 before:opacity-100 relative">
+              <div className="space-y-2 relative z-10">
+                {/* Navigation Links */}
                 {[
-                  { id: 'hero', label: 'Accueil', icon: '🏠' },
-                  { id: 'services', label: 'Services', icon: '✨' },
-                  { id: 'about', label: 'À propos', icon: 'ℹ️' }
+                  { id: 'hero', label: 'Accueil' },
+                  { id: 'services', label: 'Services' },
+                  { id: 'about', label: 'À propos' }
                 ].map((item) => (
-                  <button 
+                  <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="w-full flex items-center space-x-3 text-left text-neutral-900 hover-champagne font-medium py-[clamp(0.5rem,1.5vw,0.75rem)] px-[clamp(0.75rem,2vw,1rem)] rounded hover:bg-brand-500/8 transition-all duration-300 font-body group text-[clamp(0.875rem,2vw,1rem)]"
+                    className="w-full text-left text-neutral-900/80 hover:text-neutral-900 font-normal py-4 px-5 rounded-xl hover:bg-white/40 hover:backdrop-blur-sm transition-all duration-500 font-body text-base tracking-wide border border-transparent hover:border-brand-400/20 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
                   >
-                    <span className="text-lg group-hover:scale-110 transition-transform duration-300">{item.icon}</span>
-                    <span>{item.label}</span>
+                    {item.label}
                   </button>
                 ))}
+
+                {/* Divider luxe */}
+                <div className="py-3">
+                  <div className="h-px flex items-center gap-2">
+                    <span className="h-px flex-1 bg-neutral-200" />
+                    <span className="h-1 w-8 rounded-full bg-gradient-to-r from-brand-400 via-brand-300 to-brand-400 opacity-80" />
+                    <span className="h-px flex-1 bg-neutral-200" />
+                  </div>
+                </div>
+
+                {/* CTA Mobile */}
+                <button
+                  onClick={() => navigate('/booking')}
+                  className="w-full bg-gradient-to-r from-neutral-900 to-neutral-800 text-white py-4 px-6 text-base font-medium tracking-wide transition-all duration-500 rounded-full font-body shadow-[0_8px_32px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.3)] hover:scale-[1.02] relative overflow-hidden group"
+                >
+                  <span className="relative z-10">Réserver</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-brand-400 to-brand-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
+                </button>
               </div>
-              
-              <div className="divider-luxe my-4"></div>
-              
-              {/* CTA Mobile */}
-              <button 
-                onClick={() => navigate('/booking')}
-                className="btn-luxe-primary w-full py-[clamp(0.75rem,2vw,1rem)] hover-lift-luxe hover:shimmer-luxe text-[clamp(0.75rem,1.5vw,0.875rem)]"
-              >
-                <span className="flex items-center justify-center space-x-2">
-                  <Crown className="w-4 h-4" />
-                  <span>Réserver Maintenant</span>
-                </span>
-              </button>
             </div>
           </div>
         )}

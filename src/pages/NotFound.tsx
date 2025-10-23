@@ -14,7 +14,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-[100svh] flex items-center justify-center bg-white relative overflow-hidden">
+    <div className="min-h-[100svh] flex items-center justify-center bg-background relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/4 left-1/4 w-[clamp(4rem,15vw,8rem)] h-[clamp(4rem,15vw,8rem)] border border-brand-500 rounded-full animate-float-gentle"></div>

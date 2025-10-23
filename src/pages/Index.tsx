@@ -1,19 +1,23 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
+import RitualSignature from "@/components/RitualSignature";
 import Gallery from "@/components/Gallery";
-import Contact from "@/components/Contact";
+import HairTypes from "@/components/HairTypes";
+import CTA from "@/components/CTA";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Header />
       <main>
         <Hero />
-        <Services />
+        <HairTypes />
         <Gallery />
-        <Contact />
+        <RitualSignature />
+        <CTA />
       </main>
+      <Footer />
     </div>
   );
 };
